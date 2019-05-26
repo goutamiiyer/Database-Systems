@@ -1,0 +1,208 @@
+CREATE TABLE COUNTRY(
+    Cid INT(11) NOT NULL,
+    CName VARCHAR(255) NOT NULL,
+    Confederation VARCHAR(255) NOT NULL,
+    Continent VARCHAR(255) NOT NULL,
+    Population INT(10) NOT NULL,
+    PRIMARY KEY(CName),
+    UNIQUE KEY(Cid)
+);
+
+CREATE TABLE PLAYER (
+ PNo int(10) NOT NULL,
+ CName varchar(255) NOT NULL,
+ PPosition varchar(2) NOT NULL,
+ PName varchar(255) NOT NULL,
+ PJName varchar(255) NOT NULL,
+ DOB date DEFAULT NULL,
+ Club varchar(255) DEFAULT NULL,
+ Height int(10) DEFAULT NULL,
+ Weight int(10) DEFAULT NULL,
+ PRIMARY KEY (PNo),
+ FOREIGN KEY (CName) REFERENCES COUNTRY (CName)
+);
+
+CREATE TABLE STADIUM (
+ SId int(10) NOT NULL,
+ SName varchar(255) NOT NULL,
+ City varchar(2) NOT NULL,
+ Capacity varchar(255) DEFAULT NULL,
+ PRIMARY KEY (SName),
+ UNIQUE KEY SId (SId)
+);
+
+CREATE TABLE GAME (
+ GId int(10) NOT NULL,
+ GType varchar(255) NOT NULL,
+ GDate date NOT NULL,
+ SName varchar(255) NOT NULL,
+ Team1 varchar(255) NOT NULL,
+ Team2 varchar(255) NOT NULL,
+ Score1 int(10) NOT NULL,
+ Score2 int(10) NOT NULL,
+ NoOfSubs int(10) NOT NULL,
+ Result varchar(255) NOT NULL,
+ PRIMARY KEY (GId,Gtype,Team1,Team2),
+ FOREIGN KEY (SName) REFERENCES STADIUM (SName),
+ FOREIGN KEY (Team1) REFERENCES COUNTRY (CName),
+ FOREIGN KEY (Team2) REFERENCES COUNTRY (CName)
+);
+
+CREATE TABLE CARD (
+ PNo int(10) NOT NULL,
+ Team VARCHAR(255) NOT NULL,
+ GId int(10) NOT NULL,
+ CardType varchar(2) NOT NULL,
+ CardTime DATETIME NOT NULL,
+ PRIMARY KEY (PNo,Team,GId),
+ FOREIGN KEY (PNo) REFERENCES PLAYER (PNo),
+ FOREIGN KEY (Team) REFERENCES GAME (Team1),
+ FOREIGN KEY (Team) REFERENCES GAME (Team2),
+ FOREIGN KEY (GId) REFERENCES GAME (GId)
+);
+
+CREATE TABLE GOAL (
+ PNo int(10) NOT NULL,
+ Team VARCHAR(255) NOT NULL,
+ GId int(10) NOT NULL,
+ GoalType varchar(2) NOT NULL,
+ GoalTime DATETIME NOT NULL,
+ PRIMARY KEY (PNo,Team,GId),
+ FOREIGN KEY (PNo) REFERENCES PLAYER (PNo),
+ FOREIGN KEY (Team) REFERENCES GAME (Team1),
+ FOREIGN KEY (Team) REFERENCES GAME (Team2),
+ FOREIGN KEY (GId) REFERENCES GAME (GId) 
+);
+
+CREATE TABLE SUBSTITUTION (
+ GId int(10) NOT NULL,
+ Substitute int(50) DEFAULT NULL,
+ Team varchar(255) DEFAULT NULL,
+ SubTime datetime DEFAULT NULL,
+ RepPlayer int(50) DEFAULT NULL,
+ PRIMARY KEY (Team,Substitute,GId),
+ FOREIGN KEY (Substitute) REFERENCES PLAYER (PNo),
+ FOREIGN KEY (Team) REFERENCES GAME (Team1),
+ FOREIGN KEY (Team) REFERENCES GAME (Team2),
+ FOREIGN KEY (GId) REFERENCES GAME (GId)
+);
+
+CREATE TABLE LINEUP (
+ GId int(10) NOT NULL,
+ PNo int(10) NOT NULL,
+ PName varchar(255) NOT NULL,
+ Team varchar(255) DEFAULT NULL,
+ PRIMARY KEY (PNo,Team,GId),
+ FOREIGN KEY (PNo) REFERENCES PLAYER (PNo),
+ FOREIGN KEY (Team) REFERENCES GAME (Team1),
+ FOREIGN KEY (Team) REFERENCES GAME (Team2),
+ FOREIGN KEY (GId) REFERENCES GAME (GId)
+);
+===============================================================
+show CREATE TABLE matche;
+
+use SOCCER;
+CREATE TABLE COUNTRY (
+    CId int			NOT NULL,
+    CName varchar(255)		NOT NULL,
+    Confederation varchar(255)	NOT NULL,
+    Continent varchar(255)	NOT NULL,
+    Population int(10), 
+    PRIMARY KEY(CName) 
+);
+
+use SOCCER;
+CREATE TABLE PLAYER (
+    PNo int(10)			NOT NULL,
+    CName varchar(255)		NOT NULL,
+    PPosition varchar(2)	NOT NULL,
+    PName varchar(255)		NOT NULL,
+    PJerseyName varchar(255)	NOT NULL,
+    DOB date,
+    Club varchar(255),
+    Height int(10),
+    Weight int(10),
+    PRIMARY KEY(PNo),
+    FOREIGN KEY (CName) REFERENCES country(CName)
+);
+
+
+use soccer;
+ALTER TABLE player
+  ADD FOREIGN KEY (CName) REFERENCES country(CName);
+use soccer;
+ALTER TABLE goal
+  ADD FOREIGN KEY (GameId) REFERENCES matche(GameId);
+use soccer;
+ALTER TABLE gametype
+  ADD FOREIGN KEY (GameId) REFERENCES matche(GameId);
+
+use soccer;
+ALTER TABLE card
+  ADD FOREIGN KEY (GameId) REFERENCES matche(GameId);
+
+use soccer;
+ALTER TABLE card
+  ADD FOREIGN KEY (PNo) REFERENCES player(PNo);
+
+use soccer;
+ALTER TABLE goal
+  ADD FOREIGN KEY (PNo) REFERENCES player(PNo);
+use soccer;
+ALTER TABLE substitution
+  ADD FOREIGN KEY (GameId) REFERENCES match_result(GameId);
+
+use soccer;
+ALTER TABLE matche
+  ADD FOREIGN KEY (SName) REFERENCES stadium(SName);
+use soccer;
+ALTER TABLE matche
+  ADD FOREIGN KEY (Team1) REFERENCES country(CName);
+use soccer;
+ALTER TABLE matche
+  ADD FOREIGN KEY (Team2) REFERENCES country(CName);
+
+use soccer;
+
+CREATE TABLE `stadium` (
+ `SId` int(10) NOT NULL,
+ `SName` varchar(255) NOT NULL,
+ `City` varchar(2) NOT NULL,
+ `Capacity` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`SId`,`SName`)
+) 
+
+use soccer;
+ALTER TABLE stadium
+  ADD PRIMARY KEY (SId) 
+
+CREATE TABLE `matche` (
+ `GameId` int(10) DEFAULT NULL,
+ `Date` date DEFAULT NULL,
+ `Sname` varchar(255) DEFAULT NULL,
+ `Team1` varchar(255) DEFAULT NULL,
+ `Team2` varchar(255) DEFAULT NULL,
+ `Score1` int(10) DEFAULT NULL,
+ `Score2` int(10) DEFAULT NULL,
+ `NoOfSubstitutes` int(10) DEFAULT NULL,
+ `Substitute1` varchar(255) DEFAULT NULL,
+ `Substitute2` varchar(255) DEFAULT NULL,
+ `Substitute3` varchar(255) DEFAULT NULL,
+ `Substitute4` varchar(255) DEFAULT NULL,
+ `ReplacedPlayer1` varchar(255) DEFAULT NULL,
+ `ReplacedPlayer2` varchar(255) DEFAULT NULL,
+ `ReplacedPlayer3` varchar(255) DEFAULT NULL,
+ `ReplacedPlayer4` varchar(255) DEFAULT NULL,
+ `SubstitutionTime1` datetime DEFAULT NULL,
+ `SubstitutionTime2` datetime DEFAULT NULL,
+ `SubstitutionTime3` datetime DEFAULT NULL,
+ `SubstitutionTime4` datetime DEFAULT NULL,
+ `GType` varchar(255) DEFAULT NULL,
+ `CardType` varchar(255) DEFAULT NULL,
+ `CardTime` varchar(10) DEFAULT NULL,
+ `TeamGoal1` int(10) DEFAULT NULL,
+ `TeamGoal2` int(10) DEFAULT NULL,
+ `MatchResult` varchar(255) DEFAULT NULL
+) ;
+use soccer;
+

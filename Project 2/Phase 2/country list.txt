@@ -1,0 +1,27 @@
+				<datalist id="countryList">
+					<option value="Russia"></option>
+					<option value="Saudi Arabia"></option>
+					<option value="Egypt"></option>
+					<option value="Uruguay"></option>
+					<option value="Portugal"></option>
+					<option value="Spain"></option>
+					<option value="Morocco"></option>
+					<option value="IR Iran"></option>
+					<option value="France"></option>
+					<option value="Australia"></option>
+					<option value="Peru"></option>
+					<option value="Denmark"></option>
+					<option value="Argentina"></option>
+					<option value="Iceland"></option>
+					<option value="Croatia"></option>
+					<option value="Nigeria"></option>
+					<option value="Brazil"></option>
+					<option value="Switzerland"></option>
+					<option value="Costa Rica"></option>
+					<option value="Serbia"></option>
+					<option value="Germany"></option>
+					<option value="Mexico"></option>
+					<option value="Sweden"></option>
+					<option value="Korea Republic"></option>
+					<option value="Belgium"></option>
+				</datalist>

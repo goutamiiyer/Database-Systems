@@ -1,0 +1,185 @@
+4.1 What is a subclass? When is a subclass needed in data modeling?
+
+an entity type has numerous subgroupings or subtypes of its entities that are meaningful
+and need to be represented explicitly because of their significance to the database
+application.
+
+Additional info:
+
+Subset of the entities that belongs to the super class entity set.
+
+Subgroupings of entities that are meaningful.
+
+Subclass can define:
+Specific attributes
+Specific relationship types
+easy way to define inheritance between two entity types.
+
+4.2 Define the following terms: superclass of a subclass, superclass/subclass relationship,
+IS-A relationship, specialization, generalization, category, specific
+(local) attributes, and specific relationships.
+
+A superclass is the class from which many subclasses can be created. 
+The subclasses inherit the characteristics of a superclass. 
+The superclass is also known as the parent class or base class.
+
+state an example. subclass inherits the attributes of super class.
+
+Secretary is-a employee & technician is-a employee
+
+specialization - Specialization is the process of defining a set of subclasses of a superclass
+
+Generalization is the reverse of the specialization process. Several classes with common features are generalized into a superclass;
+original classes become its subclasses.
+
+Supress the differences between entity types(subclasses) and identify the common features in them and generlaize them into a super class.
+
+category(UNION TYPE) - a subclass will represent a collection of entities that is a subset of the UNION of entities from distinct entity types; 
+we call such a subclass a union type or a category
+
+specific (local) attributes - Attributes that apply only to entities of a
+particular subclass—such as TypingSpeed of SECRETARY—are attached to the rectangle
+representing that subclass. These are called specific (or local) attributes of
+the subclass.
+
+specific relationships - a subclass can participate in specific relationship types,
+such as the HOURLY_EMPLOYEE subclass participating in the BELONGS_TO relationship.
+
+4.3 Using inheritance -  when a certain entity can inherit traits from a superclass or 
+entity that already has attributes the subclass should have. 
+It is useful to avoid redundancy and repetitiveness
+
+4.4 and 4.5 
+
+Predicate-defined ( or condition-defined) : based
+on some predicate. E.g., based on value of an
+attribute, say, Job-type, or Age.
+
+Attribute-defined: shows the name of the attribute
+next to the line drawn from the superclass toward
+the subclasses (see Fig. 4.1)
+
+User-defined: When we do not have a condition for determining membership in a subclass, the
+subclass is called user-defined. Membership in such a subclass is determined by the
+database users when they apply the operation to add an entity to the subclass; hence,
+membership is specified individually for each entity by the user, not by any condition
+that may be evaluated automatically.
+
+4.6 
+
+Disjointness Constraint:
+
+Specifies that the subclasses of the specialization must be disjoint: 
+an entity can be a member of at most one of the subclasses of the specialization
+shown in EER diagram by d.
+
+Completeness Constraint:
+
+every entity in the superclass must be a member of some subclass in the specialization/generalization.
+Shown in EER diagrams by a double line.
+
+4.7 
+
+Hierarchy has a constraint that every subclass has only one superclass (called single
+inheritance); this is basically a tree structure
+
+In a lattice, a subclass can be subclass of more than one superclass (called multiple inheritance)
+
+4.8 
+
+specialization - Specialization is the process of defining a set of subclasses of a superclass
+
+Generalization is the reverse of the specialization process. Several classes with common features are generalized into a superclass;
+original classes become its subclasses.
+
+4.9 
+
+category(UNION TYPE) - a subclass will represent a collection of entities that is a subset of the UNION of entities from distinct entity types; 
+we call such a subclass a union type or a category
+
+In a lattice, a subclass can be subclass of more than one superclass (called multiple inheritance)
+shared subclass is a subclass which is a member of all of its superclass.
+
+
+3.1 
+
+1-High-level data model do not include implementation details, they are easy to understand and are useful in communicating with non-technical users.
+2- it can also be used as reference to ensure that all user requirements are met and that requirements do not conflict with each other.
+3- this also enables database designers to concentrate on specifying the properties of data withoutbeing concerned with storage details.
+
+3.2
+
+1-When value of an attribute is irrelevant for an entityFor example: in a schema that stores information about a person if we have an attribute calledcompany, 
+which sores the company name where a person works. Now for a student who is not working, this attribute value will be irrelevant, 
+so we can put in a NULL value at its place.
+
+2-When value of attribute is not known, either because it is not known that value for attribute exist or because existing value is unknown, 
+then we can put NULL as value.
+
+3.3
+
+1. Entity: is an object (thing) with independent physical (car, home, person) or conceptual (company, university course) existence in the real world.
+
+2. Attribute: each real-world entity (thing) has certain properties that represent its significance in real world or describes it, 
+these properties of entity are known as attribute.
+
+3. Attribute value: associated with each real-world entity are certain attribute 
+that described that entity value of these attributes for any entity is called attribute value.
+
+4. Relationship instance: 
+
+composite attribute: The attribute may be composed of several components
+
+multi valued: An entity may have multiple values for that attribute
+
+derived attribute - A derived attribute is an attribute whose value is calculated (derived) from other attributes. 
+The derived attribute need not be physically stored within the database; instead, it can be derived by using an algorithm.
+
+key attribute - An attribute of an entity type for which each entity must have a unique value is called a
+key attribute of the entity type. an entity type has one or more attributes whose values are distinct for each individual entity in a entity set.
+
+value set (domain) - A value set specifies the set of values associated with an attribute
+
+3.4
+
+Entity type - collection of entities that have same attributes.
+
+Entity Set - collection of all entities in a particular entity type in database at any point in time. (Entity Collection)
+
+Entity - specific thing or object in real world with independant existence.
+
+3.5. attribute and value set - refer above.
+
+3.6 
+
+relationship type - Relationships of the same type are grouped or typed into
+a relationship type.
+
+Also
+
+a.Is the schema description of a relationship
+b.Identifies the relationship name and the participating entity types
+c.Also identifies certain relationship constraints
+
+relationship set - The current set of relationship instances
+represented in the database. The current state of a relationship type
+
+3.7
+
+participation role - Each entity type that participates in a relationship type plays a particular role in the relationship.
+It necessary to use role names in the description of relationship types, in some cases the same entity type participates 
+more than once in relationship type in different roles. In such cases the role name become essential for distinguishing the meaning of each participation. 
+Such relationship types are called recursive relationships.
+
+3.8
+
+cardinality ratio
+participation constraint
+
+3.9 
+
+1:1
+1:N
+
+from 3.10 refer pdf attached.
+
