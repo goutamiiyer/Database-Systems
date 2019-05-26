@@ -1,0 +1,179 @@
+#wrapper
+{
+	color: #595959;
+	font-family: 'Roboto', Arial, sans-serif;
+	background-color: #FFFFFF;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+.header
+{
+	color: #595959;
+	line-height: 200%;
+	box-sizing: content-box;
+	padding-right: 30px;
+	height: 60px;
+}
+.logostyle
+{
+	position: absolute;
+	left: 20px;
+}
+.logo
+{
+	height: 35px;
+	width: 70px;
+	padding-left: 100px;
+}
+.name
+{
+	font-size: 16px;
+	padding-left: 70px;
+}
+.navlink
+{
+	text-decoration: none;
+	color: #595959;
+	padding: 10px;	
+	text-align: center;
+	float: right;
+	font-size: 12px;
+}
+.navlink:hover
+{
+	text-decoration: none;
+	color: #FFC300;
+}
+.navlink:active
+{
+	color: #FFC300;
+}
+.currentPage
+{
+	text-decoration: none;
+	padding: 10px;
+	text-align: center;
+	float: right;
+	font-size: 12px;
+	color: #FFC300;
+}
+.banner
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 300px;
+	position: relative;
+}
+.homebox
+{
+	box-sizing: border-box;
+	margin: 50px;
+	border: 20px;
+	padding: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #EDEDED;
+}
+.qlink
+{
+	text-decoration: none;
+	color: #595959;
+	font-size: 12px;
+	box-sizing: content-box;
+}
+.qlink:hover
+{
+	text-decoration: none;
+	color: #FFC300;
+}
+.qlink:active
+{
+	color: #FFC300;
+}
+.linkbox
+{
+	box-sizing: content-box;
+	padding-top: 20px;
+	padding-bottom: 50px;	
+}
+.qcolor
+{
+	color: #FFC300;
+	font-size: 12px;
+}
+.qtext
+{
+	font-size: 12px;
+}
+.formbox
+{
+	box-sizing: border-box;
+	margin: 50px;
+	border: 20px;
+	padding: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #EDEDED;
+}
+.fieldName
+{
+	font-size: 12px;
+}
+.fbox
+{
+	padding-top: 20px;
+}
+.subBtn
+{
+	box-sizing: content-box;
+	padding-top: 20px;
+}
+table 
+{
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+table, td, th 
+{
+ /* border: 1px solid black;*/
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding: 5px;
+}
+
+td
+{
+	text-align: center;
+	background-color: #EDEDED;
+}
+th
+{
+	background-color: #00D5FD;
+}
+.main-footer
+{
+	font-size: 0.70em;
+}
+.copy
+{
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.copyname
+{
+	color: #FFC300;
+}
+.uparrow
+{
+	float: right;
+	color: #FFC300;
+	font-size: 16px;
+}
